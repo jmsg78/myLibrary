@@ -1,0 +1,34 @@
+<div class="add-category">
+  <div *ngIf="showError" class="alert alert-danger" role="alert">
+      Category was not added to your Library. Please again!
+  </div>
+  <form [formGroup]="addCategoryForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+          <label for="name" class="required">Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name" placeholder="Category name">
+      </div>
+      <div *ngIf="addCategoryForm.controls['name'].invalid  && (addCategoryForm.controls['name'].dirty || addCategoryForm.controls['name'].touched)" class="alert alert-danger">
+          <div *ngIf="addCategoryForm.controls['name'].errors.required">
+              Category name is required
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="description" class="required">Description</label>
+          <input type="text" class="form-control" id="description" formControlName="description" placeholder="Category description">
+      </div>
+      <div *ngIf="addCategoryForm.controls['description'].invalid  && (addCategoryForm.controls['description'].dirty || addCategoryForm.controls['description'].touched)" class="alert alert-danger">
+          <div *ngIf="addCategoryForm.controls['description'].errors.required">
+              Category description is required
+          </div>
+          <div *ngIf="addCategoryForm.controls['description'].errors.minlength">
+              Description needs to be at least 10 chars
+          </div>
+      </div>
+
+<div class="row">
+  <div class="col-md-4 col-xs-4 col-sm-4">
+      <button class="btn btn-success" type="submit" [disabled]="addCategoryForm.pristine || addCategoryForm.invalid">Add</button>
+      <button class="btn btn-default" [routerLink]="['/categories']">Cancel</button>    </div>
+</div>
+</form>
+</div>

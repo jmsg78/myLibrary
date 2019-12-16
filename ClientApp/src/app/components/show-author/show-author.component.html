@@ -1,0 +1,15 @@
+<h1>Author Details</h1>
+
+<div class="author-details">
+    <div class="card" *ngIf="author">
+        <div class="card-body">
+            <h5 class="card-title">{{author.lastName}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">birthDate {{author.birthDate}}</h6>
+            <h1>
+                {{author.firstName}}
+            </h1>
+            <a [routerLink]="['/authors']" class="card-link">Back</a>
+            <a [routerLink]="['/update-author', author.id]" class="card-link">Update</a>
+        </div>
+    </div>
+</div>

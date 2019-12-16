@@ -1,0 +1,16 @@
+<h1>Author Delete</h1>
+
+
+    <div class="delete-details">
+        <div class="card" *ngIf="author">
+            <div class="card-body">
+                <h5 class="card-title">{{author.lastName}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">by {{author.id}}</h6>
+                <h1>
+                    {{author.firstName}}
+                </h1>
+                <button [routerLink]="['/authors']" class="btn btn-default"> Back </button>
+                <button (click)="deleteAuthor(author.id)" class="btn btn-danger"> Approve </button>
+            </div>
+        </div>
+    </div>

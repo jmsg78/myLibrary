@@ -1,0 +1,16 @@
+<h1>Category Delete</h1>
+
+
+    <div class="delete-details">
+        <div class="card" *ngIf="category">
+            <div class="card-body">
+                <h5 class="card-title">{{category.name}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">by {{category.id}}</h6>
+                <p>
+                    {{category.description}}
+                </p>
+                <button [routerLink]="['/categories']" class="btn btn-default"> Back </button>
+                <button (click)="deleteCategory(category.id)" class="btn btn-danger"> Approve </button>
+            </div>
+        </div>
+    </div>

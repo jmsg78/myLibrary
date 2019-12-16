@@ -1,0 +1,32 @@
+<h1>Updating a Category</h1>
+<div class="add-category">
+  <form [formGroup]="updateCategoryForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+          <label for="name" class="required">Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name" placeholder="Category name">
+      </div>
+      <div *ngIf="updateCategoryForm.controls['name'].invalid  && (updateCategoryForm.controls['name'].dirty || updateCategoryForm.controls['name'].touched)" class="alert alert-danger">
+          <div *ngIf="updateCategoryForm.controls['name'].errors.required">
+              Category name is required
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="description" class="required">Description</label>
+          <input type="text" class="form-control" id="description" formControlName="description" placeholder="Category description">
+      </div>
+      <div *ngIf="updateCategoryForm.controls['description'].invalid  && (updateCategoryForm.controls['description'].dirty || updateCategoryForm.controls['description'].touched)" class="alert alert-danger">
+          <div *ngIf="updateCategoryForm.controls['description'].errors.required">
+              Category description is required
+          </div>
+          <div *ngIf="updateCategoryForm.controls['description'].errors.minlength">
+              Description needs to be at least 10 chars
+          </div>
+      </div>
+
+<div class="row">
+  <div class="col-md-4 col-xs-4 col-sm-4">
+      <button class="btn btn-success" type="submit" [disabled]="updateCategoryForm.pristine || updateCategoryForm.invalid">Update</button>
+      <button class="btn btn-default" [routerLink]="['/categories']">Cancel</button>    </div>
+</div>
+</form>
+</div>

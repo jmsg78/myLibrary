@@ -1,0 +1,61 @@
+<div class="add-book">
+    <div *ngIf="showError" class="alert alert-danger" role="alert">
+        Book was not added to your Library. Please again!
+    </div>
+    <form  [formGroup]="addBookForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="title" class="required">Title</label>
+            <input type="text" class="form-control" id="title" formControlName="title" placeholder="Book title">
+        </div>
+        <div *ngIf="addBookForm.controls['title'].invalid  && (addBookForm.controls['title'].dirty || addBookForm.controls['title'].touched)" class="alert alert-danger">
+            <div *ngIf="addBookForm.controls['title'].errors.required">
+                Book title is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="author" class="required">Author</label>
+            <input type="number" class="form-control" id="author" formControlName="author" placeholder="Book author">
+        </div>
+        <div *ngIf="addBookForm.controls['author'].invalid  && (addBookForm.controls['author'].dirty || addBookForm.controls['author'].touched)" class="alert alert-danger">
+            <div *ngIf="addBookForm.controls['author'].errors.required">
+                Book author is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description" class="required">Description</label>
+            <input type="text" class="form-control" id="description" formControlName="description" placeholder="Book description">
+        </div>
+        <div *ngIf="addBookForm.controls['description'].invalid  && (addBookForm.controls['description'].dirty || addBookForm.controls['description'].touched)" class="alert alert-danger">
+            <div *ngIf="addBookForm.controls['description'].errors.required">
+                Book description is required
+            </div>
+            <div *ngIf="addBookForm.controls['description'].errors.minlength">
+                Description needs to be at least 10 chars
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="category" class="required">Category</label>
+            <input type="number" class="form-control" id="category" formControlName="category" placeholder="Book Category">
+        </div>
+        <div *ngIf="addBookForm.controls['category'].invalid  && (addBookForm.controls['category'].dirty || addBookForm.controls['category'].touched)" class="alert alert-danger">
+            <div *ngIf="addBookForm.controls['category'].errors.required">
+                Book category is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="isbn" class="required">Isbn</label>
+            <input type="text" class="form-control" id="isbn" formControlName="isbn" placeholder="Book ISBN">
+        </div>
+        <div *ngIf="addBookForm.controls['isbn'].invalid  && (addBookForm.controls['isbn'].dirty || addBookForm.controls['isbn'].touched)" class="alert alert-danger">
+            <div *ngIf="addBookForm.controls['isbn'].errors.required">
+                Book ISBN is required
+            </div>
+        </div>
+
+  <div class="row">
+    <div class="col-md-4 col-xs-4 col-sm-4">
+        <button class="btn btn-success" type="submit" [disabled]="addBookForm.pristine || addBookForm.invalid">Add</button>
+        <button class="btn btn-default" [routerLink]="['/books']">Cancel</button>    </div>
+  </div>
+</form>
+</div>

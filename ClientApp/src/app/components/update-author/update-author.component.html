@@ -1,0 +1,37 @@
+<div class="update-author">
+  <form [formGroup]="updateAuthorForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+          <label for="firstName" class="required">First Name</label>
+          <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="Fisrt Name">
+      </div>
+      <div *ngIf="updateAuthorForm.controls['firstName'].invalid  && (updateAuthorForm.controls['firstName'].dirty || updateAuthorForm.controls['firstName'].touched)" class="alert alert-danger">
+          <div *ngIf="updateAuthorForm.controls['firstName'].errors.required">
+              First Name is required
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName" class="required">Last Name</label>
+        <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Last Name">
+      </div>
+      <div *ngIf="updateAuthorForm.controls['lastName'].invalid  && (updateAuthorForm.controls['lastName'].dirty || updateAuthorForm.controls['lastName'].touched)" class="alert alert-danger">
+        <div *ngIf="updateAuthorForm.controls['lastName'].errors.required">
+            Last Name is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="birthDate" class="required">BirthDate</label>
+        <input type="date" class="form-control" id="birthDate" formControlName="birthDate" placeholder="BirthDate">
+      </div>
+      <!--<div *ngIf="addAuthorForm.controls['birthDate'].invalid  && (addAuthorForm.controls['birthDate'].dirty || addAuthorForm.controls['birthDate'].touched)" class="alert alert-danger">
+          <div *ngIf="addAuthorForm.controls['birthDate'].errors.required">
+            BirthDate is required
+          </div>
+      </div>-->
+
+<div class="row">
+  <div class="col-md-4 col-xs-4 col-sm-4">
+      <button class="btn btn-success" type="submit" [disabled]="updateAuthorForm.pristine || updateAuthorForm.invalid">Update</button>
+      <button class="btn btn-default" [routerLink]="['/authors']">Cancel</button>    </div>
+</div>
+</form>
+</div>

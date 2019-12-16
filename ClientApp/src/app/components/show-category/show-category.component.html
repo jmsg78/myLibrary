@@ -1,0 +1,15 @@
+<h1>Category Details</h1>
+
+<div class="category-details">
+    <div class="card" *ngIf="category">
+        <div class="card-body">
+            <h5 class="card-title">{{category.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">by ID {{category.id}}</h6>
+            <p>
+                {{category.description}}
+            </p>
+            <a [routerLink]="['/categories']" class="card-link">Back</a>
+            <a [routerLink]="['/update-category', category.id]" class="card-link">Update</a>
+        </div>
+    </div>
+</div>
