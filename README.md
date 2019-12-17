@@ -1,11 +1,11 @@
 # myLibrary
-MyLibrary is a NetCore 3.1 and Angular 8.3.20 demp app.
+MyLibrary is a NetCore 3.1 and Angular 8.3.20 demo app.
 ## Installation 
 Use the package npm to install myLibrary in folder ClientApp.
 ```bash
 npm install 
 ```
-You will need to install 
+Also, You will need to install 
 ```bash
 npm install @auth0/auth0-spa-js --save
 ```
