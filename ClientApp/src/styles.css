@@ -20,9 +20,36 @@ code {
 }
 
 .finder{
-  padding-top: 60px;
+  padding-top: 40px;
   color:#1861ac;
 }
 .welcome{
   padding-bottom:20px;
+  padding-top: 15px;;
+}
+
+.book-title{
+  color:#1861ac;
+  font-size:20px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.book-isbn{
+  color: #333333;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.container{
+  padding-top:15px;
+}
+.book-details{
+  padding: 0px 10px 10px 10px;
+}
+.book-description{
+  font-size:14px;
+}
+.input-search{
+  display: grid;
+  justify-content: center;
 }

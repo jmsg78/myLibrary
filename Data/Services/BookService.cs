@@ -4,32 +4,35 @@ using System.Linq;
 
 namespace MyLibrary.Data
 {
-    public class BookService : IBookService
+    public class BookService : LibraryContext, IBookService
     {
+        LibraryContext ctx = new LibraryContext();
         public void AddBook(Book newBook)
         {
-            Data.Books.Add(newBook);
+            ctx.Books.Add(newBook);
+            ctx.SaveChanges();
         }
 
         public void DeleteBook(int id)
         {
-            var book = Data.Books.FirstOrDefault(n => n.Id == id);
-            Data.Books.Remove(book);
+            var book = ctx.Books.FirstOrDefault(n => n.Id == id);
+            ctx.Books.Remove(book);
+            ctx.SaveChanges();
         }
 
         public List<Book> GetAllBooks()
         {
-            return Data.Books.ToList();
+            return ctx.Books.ToList();
         }
 
         public Book GetBookById(int id)
         {
-            return Data.Books.FirstOrDefault(n => n.Id == id);
+            return ctx.Books.FirstOrDefault(n => n.Id == id);
         }
 
         public void UpdateBook(int id, Book newBook)
         {
-            var oldBook = Data.Books.FirstOrDefault(n => n.Id == id);
+            var oldBook = ctx.Books.FirstOrDefault(n => n.Id == id);
             if(oldBook != null)
             {
                 oldBook.Title = newBook.Title;
@@ -38,6 +41,7 @@ namespace MyLibrary.Data
                 oldBook.Category = newBook.Category;
                 oldBook.Isbn = newBook.Isbn;
             }
+            ctx.SaveChanges();
         }
     }
 }

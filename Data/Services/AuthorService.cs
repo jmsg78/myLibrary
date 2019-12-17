@@ -3,38 +3,42 @@ using System.Linq;
 
 namespace MyLibrary.Data
 {
-    public class AuthorService : IAuthorService
+    public class AuthorService : LibraryContext, IAuthorService
     {
+        LibraryContext ctx = new LibraryContext();
         public void AddAuthor(Author newAuthor)
         {
-            Data.Authors.Add(newAuthor);
+            ctx.Authors.Add(newAuthor);
+            ctx.SaveChanges();
         }
 
         public void DeleteAuthor(int id)
         {
-            var author = Data.Authors.FirstOrDefault(n => n.Id == id);
-            Data.Authors.Remove(author);
+            var author = ctx.Authors.FirstOrDefault(n => n.Id == id);
+            ctx.Authors.Remove(author);
+            ctx.SaveChanges();
         }
 
         public List<Author> GetAllAuthors()
         {
-            return Data.Authors.ToList();
+            return ctx.Authors.ToList();
         }
 
         public Author GetAuthorById(int id)
         {
-            return Data.Authors.FirstOrDefault(n => n.Id == id);
+            return ctx.Authors.FirstOrDefault(n => n.Id == id);
         }
 
         public void UpdateAuthor(int id, Author newAuthor)
         {
-            var oldAuthor = Data.Authors.FirstOrDefault(n => n.Id == id);
+            var oldAuthor = ctx.Authors.FirstOrDefault(n => n.Id == id);
             if(oldAuthor != null)
             {
                 oldAuthor.FirstName = newAuthor.FirstName;
                 oldAuthor.LastName = newAuthor.LastName;
                 oldAuthor.BirthDate = newAuthor.BirthDate;
             }
+            ctx.SaveChanges();
         }
   }
 }
