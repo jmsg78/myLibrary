@@ -20,7 +20,7 @@ code {
 }
 
 .finder{
-  padding-top: 40px;
+  padding-top: 20px;
   color:#1861ac;
 }
 .welcome{
@@ -50,6 +50,8 @@ code {
   font-size:14px;
 }
 .input-search{
+  padding-top: 20px;
+  padding-bottom: 10px;
   display: grid;
   justify-content: center;
 }

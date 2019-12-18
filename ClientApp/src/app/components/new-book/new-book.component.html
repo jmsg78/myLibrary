@@ -1,8 +1,11 @@
 <div class="add-book">
+    <div class="card bg-primary text-white">
+         <div class="card-body">New Book</div>
+    </div>
     <div *ngIf="showError" class="alert alert-danger" role="alert">
         Book was not added to your Library. Please again!
     </div>
-    <form  [formGroup]="addBookForm" (ngSubmit)="onSubmit()">
+    <form  [formGroup]="addBookForm" (ngSubmit)="onSubmit()" class="title-form">
         <div class="form-group">
             <label for="title" class="required">Title</label>
             <input type="text" class="form-control" id="title" formControlName="title" placeholder="Book title">

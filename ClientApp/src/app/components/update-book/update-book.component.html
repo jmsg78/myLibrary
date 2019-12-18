@@ -1,6 +1,8 @@
-<h1>Updating a Book</h1>
 <div class="update-book">
-  <form [formGroup]="updateBookForm" (ngSubmit)="onSubmit()">
+    <div class="card bg-info text-white">
+          <div class="card-body">Update Book</div>
+    </div>
+    <form [formGroup]="updateBookForm" (ngSubmit)="onSubmit()" class="title-form">
       <div class="form-group">
           <label for="title" class="required">Title</label>
           <input type="text" class="form-control" id="title" formControlName="title" placeholder="Book title">

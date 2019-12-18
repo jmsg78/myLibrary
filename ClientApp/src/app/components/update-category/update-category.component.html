@@ -1,6 +1,8 @@
-<h1>Updating a Category</h1>
-<div class="add-category">
-  <form [formGroup]="updateCategoryForm" (ngSubmit)="onSubmit()">
+<div class="update-category">
+    <div class="card bg-info text-white">
+      <div class="card-body">Update Category</div>
+    </div>
+    <form [formGroup]="updateCategoryForm" (ngSubmit)="onSubmit()" class="title-form">
       <div class="form-group">
           <label for="name" class="required">Name</label>
           <input type="text" class="form-control" id="name" formControlName="name" placeholder="Category name">

@@ -1,8 +1,11 @@
 <div class="add-author">
+  <div class="card bg-primary text-white">
+        <div class="card-body">New Author</div>
+  </div>
   <div *ngIf="showError" class="alert alert-danger" role="alert">
       Author was not added to your Library. Please again!
   </div>
-  <form [formGroup]="addAuthorForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="addAuthorForm" (ngSubmit)="onSubmit()" class="title-form">
       <div class="form-group">
           <label for="firstName" class="required">First Name</label>
           <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="Fisrt Name">

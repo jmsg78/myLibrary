@@ -1,5 +1,8 @@
 <div class="update-author">
-  <form [formGroup]="updateAuthorForm" (ngSubmit)="onSubmit()">
+    <div class="card bg-info text-white">
+        <div class="card-body">Update Author</div>
+    </div>
+  <form [formGroup]="updateAuthorForm" (ngSubmit)="onSubmit()" class="title-form">
       <div class="form-group">
           <label for="firstName" class="required">First Name</label>
           <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="Fisrt Name">

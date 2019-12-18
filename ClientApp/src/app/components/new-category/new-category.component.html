@@ -1,8 +1,11 @@
 <div class="add-category">
+  <div class="card bg-primary text-white">
+     <div class="card-body">New Category</div>
+  </div>
   <div *ngIf="showError" class="alert alert-danger" role="alert">
       Category was not added to your Library. Please again!
   </div>
-  <form [formGroup]="addCategoryForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="addCategoryForm" (ngSubmit)="onSubmit()" class="title-form">
       <div class="form-group">
           <label for="name" class="required">Name</label>
           <input type="text" class="form-control" id="name" formControlName="name" placeholder="Category name">

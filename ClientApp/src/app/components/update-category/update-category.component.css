@@ -1,0 +1,12 @@
+.update-category {
+  padding: 0 20% 0 20%;
+}
+
+.required:after{
+  content: " * ";
+  color: red;
+}
+
+.title-form{
+  padding-top: 20px;
+}
